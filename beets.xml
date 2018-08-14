@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <TemplateURL>https://github.com/thetarkus/docker-templates/master/beets.xml</TemplateURL>
+  <Beta>False</Beta>
+  <Category>MediaApp:Music</Category>
+  <Date>2018-08-13</Date>
+  <Changes>
+    [img src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/beets-logo.png']
+
+    [font size=4]Beets Change Log[/font]
+    [b]2018-08-13:[/b] Upgrade to python 3, alpine 3.8, mp3gain 1.6.2.
+    [b]2018-08-12:[/b] Add requests pip package, add gmusicapi pip package.
+  </Changes>
+  <Support></Support>
+  <Name>beets</Name>
+  <Description>
+    Beets is the media library management system for obsessive-compulsive music
+    geeks. It catalogs your collection, automatically improving its metadata
+    using the MusicBrainz database. Then it provides a bouquet of tools
+    for manipulating and accessing your music.[br][br]
+    [b][span style='color: #E80000;']Volumes:[/span][/b][br]
+    [b]/config[/b] : Where the config file will be created[br]
+    [b]/music[/b] : Location of music library[br]
+    [b]/downloads[/b] : Location of music to be tagged[br]
+  </Description>
+  <Project>http://beets.io/</Project>
+  <Overview>
+    The purpose of beets is to get your music collection right once and for
+    all. It catalogs your collection, automatically improving its metadata as
+    it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.
+  </Overview>
+  <Registry>https://hub.docker.com/r/thetarkus/beets/</Registry>
+  <Repository>thetarkus/beets</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8337</HostPort>
+        <ContainerPort>8337</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version></Version>
+  <WebUI>http://[IP]:[PORT:8337]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/beets-logo.png</Icon>
+  <ExtraParams></ExtraParams>
+
+  <BaseImage>library/alpine:3.8</BaseImage>
+</Container>

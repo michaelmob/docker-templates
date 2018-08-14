@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container>
-  <TemplateURL>https://github.com/thetarkus/docker-templates/master/beets.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/thetarkus/docker-templates/master/beets.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>MediaApp:Music</Category>
   <Date>2018-08-13</Date>

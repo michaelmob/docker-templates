@@ -3,13 +3,13 @@
   <TemplateURL>https://raw.githubusercontent.com/thetarkus/docker-templates/master/beets.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>MediaApp:Music</Category>
-  <Date>2018-08-13</Date>
+  <Date>2018-08-14</Date>
   <Changes>
     [img src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/beets-logo.png']
 
-    [font size=4]Beets Change Log[/font]
+    [font size=4]Changelog[/font]
+    [b]2018-08-14:[/b] Use Beets master from GitHub instead of pip.
     [b]2018-08-13:[/b] Upgrade to python 3, alpine 3.8, mp3gain 1.6.2.
-    [b]2018-08-12:[/b] Add requests pip package, add gmusicapi pip package.
   </Changes>
   <Support></Support>
   <Name>beets</Name>
@@ -19,15 +19,16 @@
     using the MusicBrainz database. Then it provides a bouquet of tools
     for manipulating and accessing your music.[br][br]
     [b][span style='color: #E80000;']Volumes:[/span][/b][br]
-    [b]/config[/b] : Where the config file will be created[br]
+    [b]/config[/b] : Location of config files[br]
     [b]/music[/b] : Location of music library[br]
-    [b]/downloads[/b] : Location of music to be tagged[br]
+    [b]/import[/b] : Location of music to be imported[br]
   </Description>
   <Project>http://beets.io/</Project>
   <Overview>
     The purpose of beets is to get your music collection right once and for
     all. It catalogs your collection, automatically improving its metadata as
-    it goes using the MusicBrainz database. Then it provides a bouquet of tools for manipulating and accessing your music.
+    it goes using the MusicBrainz database. Then it provides a bouquet of tools
+    for manipulating and accessing your music.
   </Overview>
   <Registry>https://hub.docker.com/r/thetarkus/beets/</Registry>
   <Repository>thetarkus/beets</Repository>
@@ -47,24 +48,34 @@
     <Mode>bridge</Mode>
     <Publish>
       <Port>
+        <Name>Web Port</Name>
         <HostPort>8337</HostPort>
         <ContainerPort>8337</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <Name>MPD Port</Name>
+        <HostPort>6600</HostPort>
+        <ContainerPort>6600</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
   </Networking>
   <Data>
     <Volume>
+      <Name>Config Path</Name>
       <HostDir></HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
+      <Name>Import Path</Name>
       <HostDir></HostDir>
-      <ContainerDir>/downloads</ContainerDir>
+      <ContainerDir>/import</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
+      <Name>Music Path</Name>
       <HostDir></HostDir>
       <ContainerDir>/music</ContainerDir>
       <Mode>rw</Mode>
@@ -74,6 +85,5 @@
   <WebUI>http://[IP]:[PORT:8337]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/beets-logo.png</Icon>
   <ExtraParams></ExtraParams>
-
   <BaseImage>library/alpine:3.8</BaseImage>
 </Container>

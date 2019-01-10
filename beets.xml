@@ -11,7 +11,7 @@
     [b]2018-08-14:[/b] Use Beets master from GitHub instead of pip.
     [b]2018-08-13:[/b] Upgrade to python 3, alpine 3.8, mp3gain 1.6.2.
   </Changes>
-  <Support>https://github.com/thetarkus/beets/issues</Support>
+  <Support>https://github.com/thetarkus/docker-beets</Support>
   <Name>beets</Name>
   <Description>
     Beets is the media library management system for obsessive-compulsive music

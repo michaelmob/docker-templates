@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <TemplateURL>https://github.com/thetarkus/docker-templates/master/funkwhale.xml</TemplateURL>
+  <Beta>False</Beta>
+  <Category>MediaApp:Music</Category>
+  <Date>2019-01-10</Date>
+  <Changes>
+    [img src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png']
+
+    [font size=4]Funkwhale Docker Change Log[/font]
+    [b]2019-01-10:[/b] Simplify environment variables
+  </Changes>
+  <Support></Support>
+  <Name>beets</Name>
+  <Description>
+    Funkwhale is a modern, self-hosted, free and open-source music server[br][br]
+    [b][span style='color: #E80000;']Volumes:[/span][/b][br]
+    [b]/data[/b] : Location to store your database and generated media files[br]
+    [b]/music[/b] : Location of your music library[br]
+  </Description>
+  <Project>http://beets.io/</Project>
+  <Overview>
+    Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.
+  </Overview>
+  <Registry>https://hub.docker.com/r/thetarkus/funkwhale/</Registry>
+  <Repository>thetarkus/funkwhale</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+    <Variable>
+      <Name>FUNKWHALE_URL</Name>
+      <Value>yourdomain.funkwhale</Value>
+    </Variable>
+  </Environment>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>3030</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Version></Version>
+  <WebUI>http://[IP]:[PORT:3030]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png</Icon>
+  <ExtraParams></ExtraParams>
+
+  <BaseImage>library/alpine:3.8</BaseImage>
+</Container>

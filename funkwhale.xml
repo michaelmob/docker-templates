@@ -10,7 +10,7 @@
     [font size=4]Funkwhale Docker Change Log[/font]
     [b]2019-01-10:[/b] Simplify environment variables
   </Changes>
-  <Support></Support>
+  <Support>https://github.com/thetarkus/docker-funkwhale/issues</Support>
   <Name>Funkwhale</Name>
   <Description>
     Funkwhale is a modern, self-hosted, free and open-source music server[br][br]

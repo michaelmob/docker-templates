@@ -11,14 +11,14 @@
     [b]2019-01-10:[/b] Simplify environment variables
   </Changes>
   <Support></Support>
-  <Name>beets</Name>
+  <Name>Funkwhale</Name>
   <Description>
     Funkwhale is a modern, self-hosted, free and open-source music server[br][br]
     [b][span style='color: #E80000;']Volumes:[/span][/b][br]
     [b]/data[/b] : Location to store your database and generated media files[br]
     [b]/music[/b] : Location of your music library[br]
   </Description>
-  <Project>http://beets.io/</Project>
+  <Project>https://funkwhale.audio/</Project>
   <Overview>
     Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.
   </Overview>

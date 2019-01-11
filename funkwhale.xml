@@ -28,14 +28,6 @@
   <Privileged>false</Privileged>
   <Environment>
     <Variable>
-      <Name>PUID</Name>
-      <Value>99</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>100</Value>
-    </Variable>
-    <Variable>
       <Name>FUNKWHALE_URL</Name>
       <Value>yourdomain.funkwhale</Value>
     </Variable>

@@ -8,6 +8,7 @@
     [img src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png']
 
     [font size=4]Funkwhale Docker Change Log[/font]
+    [b]2019-01-15:[/b] Add PUID, PGID variables and default /data to appdata/funkwhale
     [b]2019-01-11:[/b] Finish script for postgres
     [b]2019-01-10:[/b] Simplify environment variables
   </Changes>
@@ -54,7 +55,20 @@
       <ContainerDir>/music</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
+        <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
   </Data>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/funkwhale" Mode="rw" Description="Container Path: /config" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/funkwhale</Config>
   <Version></Version>
   <WebUI>http://[IP]:[PORT:3030]/</WebUI>
   <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png</Icon>

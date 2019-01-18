@@ -1,38 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://github.com/thetarkus/docker-templates/master/funkwhale.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>MediaApp:Music</Category>
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Funkwhale</Name>
   <Date>2019-01-10</Date>
   <Changes>
-    [img src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png']
+    [center][img width="100" src='https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo-500.png'][/center]
 
     [font size=4]Funkwhale Docker Change Log[/font]
     [b]2019-01-15:[/b] Add PUID, PGID variables and default /data to appdata/funkwhale
     [b]2019-01-11:[/b] Finish script for postgres
     [b]2019-01-10:[/b] Simplify environment variables
-  </Changes>
-  <Support></Support>
-  <Name>Funkwhale</Name>
-  <Description>
-    Funkwhale is a modern, self-hosted, free and open-source music server[br][br]
-    [b][span style='color: #E80000;']Volumes:[/span][/b][br]
-    [b]/data[/b] : Location to store your database and generated media files[br]
-    [b]/music[/b] : Location of your music library[br]
-  </Description>
-  <Project>https://funkwhale.audio/</Project>
-  <Overview>
-    Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.
-  </Overview>
-  <Registry>https://hub.docker.com/r/thetarkus/funkwhale/</Registry>
+</Changes>
   <Repository>thetarkus/funkwhale</Repository>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
+  <Registry>https://hub.docker.com/r/thetarkus/funkwhale/</Registry>
+  <Network>bridge</Network>
+  <Project>https://funkwhale.audio/</Project>
+  <Overview>&#xD;
+    Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.&#xD;
+  </Overview>
+  <Category>MediaApp:Music MediaServer:Music</Category>
+  <WebUI>http://[IP]:[PORT:3030]/</WebUI>
+  <TemplateURL>https://github.com/thetarkus/docker-templates/master/funkwhale.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo-500.png</Icon>
+  <Description>&#xD;
+    Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.&#xD;
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir/>
+      <ContainerDir>/music</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/funkwhale</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
   <Environment>
-    <Variable>
-      <Name>FUNKWHALE_URL</Name>
-      <Value>yourdomain.funkwhale</Value>
-    </Variable>
     <Variable>
       <Value>99</Value>
       <Name>PUID</Name>
@@ -44,35 +52,9 @@
       <Mode/>
     </Variable>
   </Environment>
-  <Networking>
-    <Mode>bridge</Mode>
-    <Publish>
-      <Port>
-        <HostPort>3030</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-  <Data>
-    <Volume>
-      <HostDir>/mnt/user/appdata/funkwhale</HostDir>
-      <ContainerDir>/data</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/music</ContainerDir>
-      <Mode>ro</Mode>
-    </Volume>
-  </Data>
-  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Labels/>
+  <Config Name="Music Path" Target="/music" Default="" Mode="ro" Description="Container Path: /music" Type="Path" Display="always" Required="true" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
   <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/funkwhale" Mode="rw" Description="Container Path: /data" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/funkwhale</Config>
-  <Version></Version>
-  <WebUI>http://[IP]:[PORT:3030]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo.png</Icon>
-  <ExtraParams></ExtraParams>
-
-  <BaseImage>library/alpine:3.8</BaseImage>
 </Container>

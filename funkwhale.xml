@@ -27,7 +27,13 @@
   </Description>
   <Networking>
     <Mode>bridge</Mode>
-    <Publish/>
+    <Publish>
+      <Port>
+        <HostPort>3030</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
   </Networking>
   <Data>
     <Volume>
@@ -70,4 +76,5 @@
   <Config Name="PUID" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
   <Config Name="Data Path" Target="/data" Default="/mnt/user/appdata/funkwhale" Mode="rw" Description="Container Path: /data" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/funkwhale</Config>
+  <Config Name="HTTP" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">3030</Config>
 </Container>

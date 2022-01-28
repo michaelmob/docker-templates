@@ -19,7 +19,7 @@
     Funkwhale is designed to make it easy to listen to music you like, and to discover new artists.&#xD;
   </Overview>
   <Category>MediaApp:Music MediaServer:Music</Category>
-  <WebUI>http://[IP]:[PORT:3030]/</WebUI>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL>https://github.com/thetarkus/docker-templates/master/funkwhale.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/thetarkus/docker-templates/master/images/funkwhale-logo-500.png</Icon>
   <Description>&#xD;
